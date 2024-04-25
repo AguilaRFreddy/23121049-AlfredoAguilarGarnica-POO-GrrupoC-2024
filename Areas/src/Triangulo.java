@@ -4,7 +4,7 @@ public class Triangulo extends Figura {
 Scanner scanner = new Scanner(System.in);
     @Override
     protected void area() {
-        System.out.println("Se calculara el area");
+        System.out.println("\nSe calculara el area Triangulo ");
      System.out.println("Ingresa base");
      float b = scanner.nextFloat();
      System.out.println("Ingresa altura");
@@ -15,7 +15,7 @@ System.out.println("El area es: " + A);
 
     @Override
     protected void primetro() {
-        System.out.println("Se calculara Perimetro");
+        System.out.println("\nSe calculara Perimetro Triangulo ");
       System.out.println("Ingresa lado 1"); 
       float l1 = scanner.nextFloat();
       System.out.println("Ingresa lado 2"); 
