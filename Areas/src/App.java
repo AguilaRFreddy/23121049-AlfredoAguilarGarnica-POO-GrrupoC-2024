@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
+        int op;
+        do {
+    
         System.out.println("Ingresa el caso de la figura");
         System.out.println("1 triangulo");
         System.out.println("2 cuadrado");
         System.out.println("3 rectangulo");
         System.out.println("4 circulo");
-int op = scanner.nextInt();
+        System.out.println("5 SALIR");
+ op = scanner.nextInt();
 switch (op) {
     case 1:
         Triangulo triangulo = new Triangulo();
@@ -36,5 +40,6 @@ switch (op) {
     default:
         break;
 }
+} while (op!=5);
     }
 }
