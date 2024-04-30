@@ -1,9 +1,11 @@
 package Usuarios;
 
 import java.time.LocalDate;
+
+import Usuarios.utils.EmpleadoUtils;
 import Usuarios.utils.Rol;
 
-public class Asistente extends Usuario{
+public class Asistente extends Usuario implements EmpleadoUtils{
     
     private LocalDate fechaInicio;
     private double sueldo;
@@ -15,7 +17,17 @@ public class Asistente extends Usuario{
         this.sueldo = sueldo;
         this.rfc = rfc;
     }
-    
+
+
+
+    public void checarEntrada(){
+        System.out.println("checar entrada con correo");
+    }
+public void checarSalida(){
+    System.out.println("checar salida con correo");
+}
+
+
     @Override
 
     public String toString() { //Aqui  lo estamos sobreescribiendo gracias al override y con eso el programa toma primero en cuenta la clase hija que el metodo de la clase padre

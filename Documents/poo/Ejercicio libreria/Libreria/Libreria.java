@@ -47,38 +47,6 @@ public class Libreria {
     }
     
 
-    // Usuario verificarInicioSesion(String nombreUsuario, String contrasena) { 
-    //     for(Usuario i : usuarios) {
-    //         if(i.getNombreUsuario().equals(nombreUsuario)) {
-    //             if(i.getContrasena().equals(contrasena)) {
-    //                 usuarioEnSesion = i;
-    //                 return i; //puede ser retornar el usuario
-    //             }
-    //         }
-    //     }
-    //     return null; //si no retornar un null
-    // }
-
-    public void registrarCliente() {
-        ArrayList<String> datosComun = obtenerDatosComun(Rol.CLIENTE);
-        
-        String nombre = datosComun.get(0);
-        String apellido = datosComun.get(1);
-        String telefono = datosComun.get(2);
-        String nombreUsuario = datosComun.get(3);
-        String contraseña = datosComun.get(4);
-
-        Cliente cliente = new Cliente(nombre, apellido, telefono, nombreUsuario, contraseña);
-
-        if(!usuarios.containsKey(Rol.CLIENTE)) {
-            usuarios.put(Rol.CLIENTE, new ArrayList<Usuario>());   //eso va a entrar cuando la llave no exista, o sea que el hash este vacio, si no lo va a ignorar (en la segunda vez)
-
-        }
-
-        usuarios.get(Rol.CLIENTE).add(cliente); //aqui lo agrega en un lista especifica de clientes
-        System.out.println("\nCliente registrado exitosamente");
-    }
-
     public void registrarLibro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n---- Registrar libro ----");
@@ -127,29 +95,7 @@ public class Libreria {
     }
 
 
-    // public void registrarGerente() {
-    //     Scanner scanner = new Scanner(System.in);
-    //     ArrayList<String> datosComun = obtenerDatosComun(Rol.GERENTE);
-        
-    //     String nombre = datosComun.get(0);
-    //     String apellido = datosComun.get(1);
-    //     String telefono = datosComun.get(2);
-    //     String nombreUsuario = datosComun.get(3);
-    //     String contraseña = datosComun.get(4);
-    //     System.out.print("RFC: ");
-    //     String rfc = scanner.nextLine();
-    //     System.out.print("INE: ");
-    //     String ine = scanner.nextLine();
-    //     System.out.print("Sueldo: ");
-    //     double sueldo = scanner.nextDouble();
-        
-
-    //     Gerente gerente = new Gerente(nombre, apellido, telefono, sueldo, rfc.toUpperCase(), ine.toUpperCase(), nombreUsuario, contraseña);
-    //     usuarios.add(gerente);
-    //     System.out.println("\nRegistro exitoso");
-    // }
-    // Asumiendo que existe un atributo de clase para el scanner:
-// private Scanner scanner = new Scanner(System.in);
+   
 
 public void registrarGerente() {
     ArrayList<String> datosComun = obtenerDatosComun(Rol.GERENTE);
@@ -239,19 +185,7 @@ public void registrarGerente() {
             }
         }
     }
-    
-    // public void mostrarAsistentes() {
-    //     System.out.println("\nAsistentes en la biblioteca");
-    //     int x = 1;
-    //     for(Usuario i : usuarios) {
-    //         if(i.getRol() == Rol.ASISTENTE) {
-    //             Asistente asistente = (Asistente) i;         //parseo
-    //             System.out.println("\n---- Asistente " + x + " ----\n");
-    //             System.out.println(asistente.toString());
-    //             x++;
-    //         }
-    //     }
-    // }
+  
 
     public void mostrarGerentes() {
         System.out.println("\nGerentes en la biblioteca");
@@ -265,74 +199,7 @@ public void registrarGerente() {
             }
         }
     }
-    
-    // public void mostrarGerentes() {
-    //     System.out.println("\nGerentes en la biblioteca");
-    //     int x = 1;
-    //     for(Usuario i : usuarios) {
-    //         if(i.getRol() == Rol.GERENTE) {
-    //             Gerente gerente = (Gerente) i;         //parseo
-    //             System.out.println("\n---- Gerente " + x + " ----\n");
-    //             System.out.println(gerente.toString());
-    //             x++;
-    //         }
-    //     }
-    // }
 
-
-    // public void eliminarUsuario (Rol rol) {
-    //     Scanner scanner = new Scanner(System.in);
-    //     boolean band = false;
-    //     System.out.println("\n---- Eliminar usuario ----\n");
-    //     System.out.print("Ingrese el nombre de usuario que desea eliminar: ");
-    //     String nombreUsuario = scanner.nextLine();
-    //     for (Usuario i : usuarios) {
-    //         if (i.getNombreUsuario().equals(nombreUsuario)) {
-    //             band = true;
-    //             if (i.getRol() == Rol.CLIENTE && rol == Rol.CLIENTE) {
-    //                 int x = Usuario.getCANTIDAD_USUARIOS() - i.getId();
-    //                 int y = i.getId();
-    //                 i.setCANTIDAD_USUARIOS();
-    //                 usuarios.remove(i);
-    //                 for(int c = 0; c < x; c++) {
-    //                     usuarios.get(y - 1).setId();;
-    //                     y++;
-    //                 }
-    //             }
-    //             else if (i.getRol() == Rol.ASISTENTE && rol == Rol.ASISTENTE) {
-    //                 int x = Usuario.getCANTIDAD_USUARIOS() - i.getId();
-    //                 int y = i.getId();
-    //                 i.setCANTIDAD_USUARIOS();
-    //                 usuarios.remove(i);
-    //                 for(int c = 0; c < x; c++) {
-    //                     usuarios.get(y - 1).setId();;
-    //                     y++;
-    //                 }                    
-    //             }   
-    //             else {
-    //                 if (!usuarioEnSesion.getNombreUsuario().equals(nombreUsuario)) {
-    //                     int x = Usuario.getCANTIDAD_USUARIOS() - i.getId();
-    //                     int y = i.getId();
-    //                     i.setCANTIDAD_USUARIOS();
-    //                     usuarios.remove(i);
-    //                     for(int c = 0; c < x; c++) {
-    //                         usuarios.get(y - 1).setId();
-    //                         y++;
-    //                     }
-    //                 }
-    //                 else {
-    //                     System.out.println("\nNo puedes eliminarte a ti mismo");
-    //                     break;
-    //                 }
-    //             }
-    //             System.out.println("\nUsuario eliminado");
-    //             break;
-    //         }
-    //     }
-    //     if(band == false) {
-    //         System.out.println("\nEste nombre no pertenece a ningún usuario");
-    //     }
-    // }
     public void eliminarUsuario(Rol rol) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n---- Eliminar usuario ----\n");
@@ -368,31 +235,6 @@ public void registrarGerente() {
     
 
 
-    // public String registrarTelefonoUsuario() {
-    //     Scanner scanner = new Scanner(System.in);
-    //     boolean telefonoExistente = true;
-    //     String telefono = "";
-
-    //     do {
-    //         System.out.println("\nIngresa el telefono: ");
-    //         telefono = scanner.nextLine();
-
-    //         telefonoExistente = false;
-    //         for(Usuario i : usuarios) {
-    //             if(i.getTelefono().equals(telefono)) {
-    //                 telefonoExistente = true;
-    //                 break;
-    //             }
-    //         }
-
-    //         if(telefonoExistente) {
-    //             System.out.println("El telefono ya se encuentra registrado. Intenta de nuevo.");
-    //         }
-    //     }
-    //     while(telefonoExistente);
-    //     return telefono;
-    // }
-// Definir un solo Scanner como atributo de clase para reutilizarlo
 private Scanner scanner = new Scanner(System.in);
 
 public String registrarTelefonoUsuario() {
@@ -423,32 +265,7 @@ public String registrarTelefonoUsuario() {
 }
 
 
-    // public String registrarNombreUsuario() {
-    //     Scanner scanner = new Scanner(System.in);
-    //     String nombreUsuario = "";
-    //     boolean nombreUsuarioExistente = true;
-    //     do {
-    //         System.out.println("\nIngresa el nombre de usuario: ");
-    //         nombreUsuario = scanner.nextLine();
-
-    //         nombreUsuarioExistente = false;
-    //         for(Usuario i : usuarios) {
-    //             if(i.getNombreUsuario().equals(nombreUsuario)) {
-    //                 nombreUsuarioExistente = true;
-    //                 break;
-    //             }
-    //         }
-
-    //         if(nombreUsuarioExistente) {
-    //             System.out.println("Ya existe un registro con ese nombre de usuario. Intenta de nuevo.");
-    //         }
-    //     }
-    //     while(nombreUsuarioExistente);
-    //     return nombreUsuario;
-    // }
-    // Asumiendo que el Scanner se ha movido como atributo de la clase para su reutilización
-// private Scanner scanner = new Scanner(System.in);
-
+   
 public String registrarNombreUsuario() {
     String nombreUsuario = "";
     boolean nombreUsuarioExistente = true;

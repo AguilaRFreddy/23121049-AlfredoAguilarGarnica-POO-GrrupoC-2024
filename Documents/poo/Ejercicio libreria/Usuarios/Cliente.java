@@ -1,5 +1,7 @@
 package Usuarios;
 import java.time.LocalDate;
+
+import Libreria.Libreria;
 import Usuarios.utils.Rol;
 
 public class Cliente extends Usuario {
@@ -18,5 +20,26 @@ public class Cliente extends Usuario {
     public String toString() { //Aqui  lo estamos sobreescribiendogracias al override y con eso el programa toma primero en cuenta la clase hija que el metodo de la clase padre
         return String.format("%s, Fecha de registro: %s", super.toString(), this.fechaRegistro);
     }
-    //tambien podemos acer esto con gets 
+   
+
+    public void registrarCliente() {
+        ArrayList<String> datosComun = Libreria.obtenerDatosComun(Rol.CLIENTE);
+        
+        String nombre = datosComun.get(0);
+        String apellido = datosComun.get(1);
+        String telefono = datosComun.get(2);
+        String nombreUsuario = datosComun.get(3);
+        String contraseña = datosComun.get(4);
+
+        Cliente cliente = new Cliente(nombre, apellido, telefono, nombreUsuario, contraseña);
+
+        if(!usuarios.containsKey(Rol.CLIENTE)) {
+            usuarios.put(Rol.CLIENTE, new ArrayList<Usuario>());   //eso va a entrar cuando la llave no exista, o sea que el hash este vacio, si no lo va a ignorar (en la segunda vez)
+
+        }
+
+        usuarios.get(Rol.CLIENTE).add(cliente); //aqui lo agrega en un lista especifica de clientes
+        System.out.println("\nCliente registrado exitosamente");
+    }
+
 }

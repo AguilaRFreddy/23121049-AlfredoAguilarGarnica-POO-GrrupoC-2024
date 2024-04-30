@@ -1,9 +1,10 @@
 package Usuarios;
 import java.time.LocalDate;
 
+import Usuarios.utils.EmpleadoUtils;
 import Usuarios.utils.Rol;
 
-public class Gerente extends Usuario{
+public class Gerente extends Usuario implements EmpleadoUtils{
     private LocalDate fechaInicio;
     private double sueldo;
     private String rfc, ine;
@@ -14,6 +15,13 @@ public class Gerente extends Usuario{
         this.ine = ine;
         this.rfc = rfc;
         this.fechaInicio = LocalDate.now();
+    }
+
+    public void checarEntrada(){
+        System.out.println("Entrada con huella");
+    }
+    public void checarSalida(){
+        System.out.println("Salida con huella");
     }
 
     @Override
