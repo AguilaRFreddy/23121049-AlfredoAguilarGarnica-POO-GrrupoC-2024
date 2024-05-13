@@ -4,6 +4,8 @@ import Libros.utils.cosntants.Genero;
 import Libros.utils.cosntants.TerrorSubgenero;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import Libreria.Libreria;
 
@@ -26,5 +28,6 @@ public class LibroAccion extends Books {
        Libreria.libros.get(Genero.COMEDIA).stream().map(libro -> libro.getAuthorName()).forEach(libro -> System.out.println(libro.toString()));
 
 }
+ 
 
 }
