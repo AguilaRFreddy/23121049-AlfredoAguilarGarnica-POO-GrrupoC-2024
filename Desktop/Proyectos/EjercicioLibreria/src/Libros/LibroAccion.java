@@ -28,6 +28,14 @@ public class LibroAccion extends Books {
        Libreria.libros.get(Genero.COMEDIA).stream().map(libro -> libro.getAuthorName()).forEach(libro -> System.out.println(libro.toString()));
 
 }
+  // Método para filtrar libros de acción por nombre del autor, precio y stock
+  public static List<LibroAccion> filtrarPorNombreAutorPrecioStock(List<LibroAccion> libros, String nombreAutor, double precioMaximo, int stockMinimo) {
+    return libros.stream()
+            .filter(libro -> libro.getAuthorName().equalsIgnoreCase(nombreAutor))
+            .filter(libro -> libro.getPrecio() <= precioMaximo)
+            .filter(libro -> libro.getStock() >= stockMinimo)
+            .collect(Collectors.toList());
+}
  
 
 }

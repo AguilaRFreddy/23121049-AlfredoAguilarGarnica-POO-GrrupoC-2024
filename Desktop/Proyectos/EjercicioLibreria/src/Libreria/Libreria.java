@@ -14,6 +14,7 @@ public class Libreria {
     public static final HashMap<Rol, ArrayList<Usuario>> usuarios = new HashMap <Rol, ArrayList<Usuario>>();
     public static final HashMap<String, Usuario> usuarioVerificar = new HashMap <String, Usuario>();
     public static final HashMap<Genero, ArrayList<Books>> libros = new HashMap <Genero, ArrayList<Books>>();
+    Scanner scanner = new Scanner(System.in);
     public Libreria() {
        inicializarHashmap();
         Asistente newAsistente = new Asistente("Pancho", "Villa", "4432087308",
@@ -78,6 +79,99 @@ public class Libreria {
     }
     public void registrarLibroTerror() {
         LibroTerror.registrarLibroTerror();
+    }
+    public void imprimirLibrosPorGenero() {
+        System.out.println("Seleccione el género de los libros a mostrar:");
+        System.out.println("1. Terror");
+        System.out.println("2. Comedia");
+        System.out.println("3. Acción");
+
+        int opcionGenero = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        Genero genero = null;
+        switch (opcionGenero) {
+            case 1:
+                genero = Genero.TERROR;
+                break;
+            case 2:
+                genero = Genero.COMEDIA;
+                break;
+            case 3:
+                genero = Genero.ACCION;
+                break;
+            default:
+                System.out.println("Opción no válida");
+                return; // Salir del método si la opción no es válida
+        }
+
+        List<Books> librosGenero = libros.get(genero);
+        if (librosGenero != null) {
+            System.out.println("Libros del género " + genero + ":");
+            librosGenero.forEach(libro -> System.out.println(libro));
+        } else {
+            System.out.println("No se encontraron libros del género " + genero);
+        }
+    }
+    public void imprimirTodosLosLibros() {
+        System.out.println("Lista de todos los libros disponibles:");
+
+        List<Books> todosLosLibros = new ArrayList<>();
+
+        // Agregar todos los libros de todos los géneros a una lista común
+        libros.forEach((genero, listaLibros) -> todosLosLibros.addAll(listaLibros));
+
+        // Imprimir todos los libros
+        todosLosLibros.forEach(libro -> System.out.println(libro));
+    }
+
+     // Método para eliminar un libro según el género especificado
+     public void eliminarLibroPorGenero() {
+    Scanner scanner = new Scanner(System.in);
+        System.out.println("Seleccione el género de los libros a eliminar:");
+        System.out.println("1. Terror");
+        System.out.println("2. Comedia");
+        System.out.println("3. Acción");
+
+        int opcionGenero = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        Genero genero = null;
+        switch (opcionGenero) {
+            case 1:
+                genero = Genero.TERROR;
+                break;
+            case 2:
+                genero = Genero.COMEDIA;
+                break;
+            case 3:
+                genero = Genero.ACCION;
+                break;
+            default:
+                System.out.println("Opción no válida");
+                return; // Salir del método si la opción no es válida
+        }
+
+        System.out.println("Ingrese el título del libro a eliminar del género " + genero + ":");
+        String titulo = scanner.nextLine();
+
+        List<Books> librosGenero = libros.get(genero);
+        if (librosGenero != null) {
+            boolean libroEncontrado = false;
+            for (Books libro : librosGenero) {
+                if (libro.getTitulo().equalsIgnoreCase(titulo)) {
+                    librosGenero.remove(libro);
+                    libroEncontrado = true;
+                    System.out.println("Libro '" + titulo + "' eliminado del género " + genero);
+                    break; // Detener el bucle una vez que se haya encontrado y eliminado el libro
+                }
+            }
+            if (!libroEncontrado) {
+                System.out.println("No se encontró el libro '" + titulo + "' en el género " + genero);
+            }
+        } else {
+            System.out.println("No se encontraron libros del género " + genero);
+        }
     }
 
     public void inicializarHashmap(){
