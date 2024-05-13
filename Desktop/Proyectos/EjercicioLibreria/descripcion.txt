@@ -1,0 +1,17 @@
+JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos que se 
+utiliza para transmitir datos estructurados entre un servidor y un cliente en la web. Es legible
+ para humanos y fácilmente interpretable por las máquinas, lo que lo hace muy popular para el intercambio
+ de datos en aplicaciones web y servicios API.
+
+Descripción: JSON se basa en dos estructuras de datos fundamentales:
+    1. Objetos: Un objeto JSON es un conjunto desordenado de pares de clave-valor, 
+    donde las claves son strings y los valores pueden ser strings, números, objetos, arrays, booleanos o null.
+     Los objetos se definen entre llaves {} y los pares de clave-valor están separados por comas ,.
+
+    2. Arrays: Un array JSON es una colección ordenada de valores, que pueden ser strings, números,
+     objetos, arrays, booleanos o null. Los arrays se definen entre corchetes [] y los elementos están separados 
+     por comas ,.
+     
+JSON se utiliza para representar datos de manera estructurada y fácilmente legible.
+ Es especialmente útil en aplicaciones web para el intercambio de datos entre el cliente y el servidor, 
+ ya sea para solicitudes de API, almacenamiento de configuraciones o transferencia de información entre sistemas.

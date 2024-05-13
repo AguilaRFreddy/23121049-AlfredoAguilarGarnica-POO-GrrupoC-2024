@@ -1,0 +1,18 @@
+[
+   
+    {
+      "nombre": "Producto 1",
+      "precio": 20.5,
+      "disponible": true
+    },
+    {
+      "nombre": "Producto 2",
+      "precio": 15.75,
+      "disponible": false
+    },
+    {
+      "nombre": "Producto 3",
+      "precio": 10,
+      "disponible": true
+    }
+  ]
