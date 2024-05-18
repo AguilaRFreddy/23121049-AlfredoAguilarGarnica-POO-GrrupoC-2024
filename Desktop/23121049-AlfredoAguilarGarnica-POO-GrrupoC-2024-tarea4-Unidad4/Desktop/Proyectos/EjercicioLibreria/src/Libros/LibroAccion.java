@@ -1,0 +1,41 @@
+package Libros;
+
+import Libros.utils.cosntants.Genero;
+import Libros.utils.cosntants.TerrorSubgenero;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import Libreria.Libreria;
+
+public class LibroAccion extends Books {
+    private TerrorSubgenero clasificacion;
+
+    public LibroAccion(String titulo, LocalDate fechaLanzamiento, String authorName, int libroID, double precio,
+            String editorial, Genero genero, int stock, TerrorSubgenero clasificacion) {
+        super(titulo, fechaLanzamiento, authorName, precio, editorial, Genero.ACCION, stock);
+        this.clasificacion = clasificacion;
+    }
+
+    @Override
+    protected void filtrarPorPrecio(Double precio) {
+      Libreria.libros.get(Genero.ACCION).stream().filter(libro -> libro.getPrecio() > precio).forEach(libro -> System.out.println(libro.toString()));
+    }
+
+    @Override
+    protected void filtrarPorInicialAutor(String inicial) {
+       Libreria.libros.get(Genero.COMEDIA).stream().map(libro -> libro.getAuthorName()).forEach(libro -> System.out.println(libro.toString()));
+
+}
+  // Método para filtrar libros de acción por nombre del autor, precio y stock
+  public static List<LibroAccion> filtrarPorNombreAutorPrecioStock(List<LibroAccion> libros, String nombreAutor, double precioMaximo, int stockMinimo) {
+    return libros.stream()
+            .filter(libro -> libro.getAuthorName().equalsIgnoreCase(nombreAutor))
+            .filter(libro -> libro.getPrecio() <= precioMaximo)
+            .filter(libro -> libro.getStock() >= stockMinimo)
+            .collect(Collectors.toList());
+}
+ 
+
+}

@@ -1,0 +1,16 @@
+{
+    //Objetos: Un objeto JSON es un conjunto desordenado de pares de clave-valor,
+    //  donde las claves son strings y los valores pueden ser strings, números, objetos, arrays, booleanos o null.
+    //  Los objetos se definen entre llaves {} y los pares de clave-valor están separados por comas ,.
+
+    
+    "nombre": "John",
+    "edad": 30,
+    "casado": false,
+    "dirección": {
+      "calle": "123 Main St",
+      "ciudad": "Ciudad Ejemplo",
+      "país": "Ejemplolandia"
+    },
+    "intereses": ["música", "deportes", "lectura"]
+  }
