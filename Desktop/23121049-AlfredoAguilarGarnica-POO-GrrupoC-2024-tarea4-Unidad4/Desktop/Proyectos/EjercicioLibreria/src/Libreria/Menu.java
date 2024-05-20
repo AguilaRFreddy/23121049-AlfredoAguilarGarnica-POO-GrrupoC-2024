@@ -284,7 +284,7 @@ public void menuRegistrarLibro(){
 //        mandará el mensaje dentro del catch.
         switch (opcionRegistrarLibro){
             case 1:
-                System.out.println("Acción.");
+                System.out.println("Acción");
                 break;
             case 2:
                 System.out.println("Comedia.");
